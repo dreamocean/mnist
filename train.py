@@ -24,14 +24,9 @@ def to4d(img):
 
 def get_mnist_iter(args, kv):
     #create data iterator with NDArrayIter
-    (train_lbl, train_img) = read_data(
-            'train-labels-idx1-ubyte.gz', 'train-images-idx3-ubyte.gz')
-    (val_lbl, val_img) = read_data(
-            't10k-labels-idx1-ubyte.gz', 't10k-images-idx3-ubyte.gz')
-    print "val_label_len:" + str(len(val_lbl)),
-    print "val_img_data_len:" + str(len(val_img)),
-    print "train_label_len:" + str(len(train_lbl)),
-    print "train_img_data_len:" + str(len(train_img))                                  
+    (train_lbl, train_img) = read_data('train-labels-idx1-ubyte.gz', 'train-images-idx3-ubyte.gz')
+    (val_lbl, val_img) = read_data('t10k-labels-idx1-ubyte.gz', 't10k-images-idx3-ubyte.gz')
+    print "val_label_len:%d val_img_data_len:%d train_label_len:%d train_img_data_len:%d"%(len(val_lbl),len(val_img),len(train_lbl),len(train_img))                                                                      
     train = mx.io.NDArrayIter(
         data         = to4d(train_img), 
         label        = train_lbl, 
