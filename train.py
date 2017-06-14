@@ -51,7 +51,7 @@ def get_symbol(num_classes=10, **kwargs):
     fc3  = mx.symbol.FullyConnected(data = act2, name='fc3', num_hidden=num_classes)
     mlp  = mx.symbol.SoftmaxOutput(data = fc3, name = 'softmax')
     shape = {"data":(64, 1, 28, 28)}
-    mx.viz.plot_network(symbol=mlp, shape=shape)
+    mx.viz.plot_network(symbol=mlp, shape=shape).view()
     return mlp
 
 def _get_lr_scheduler(args, kv):
